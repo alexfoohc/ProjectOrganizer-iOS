@@ -12,6 +12,7 @@ struct ProjectOrganizer_iOSApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [Project.self, Feature.self])
         }
     }
 }

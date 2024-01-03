@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct NewProjectView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var isDismissed
     @State private var name: String = ""
     @State private var description: String = ""
     @State private var isActive: Bool = false
     @State private var status: ProjectStatus = .active
     @State private var featureDescription: String = ""
-    @Bindable var project: Project
     var body: some View {
         NavigationStack {
             Form {
@@ -47,6 +48,8 @@ struct NewProjectView: View {
         .toolbar {
             Button("Save") {
                 let project = Project(name: name, detailedDescription: description, status: status)
+                modelContext.insert(project)
+                isDismissed()
             }
         }
     }
