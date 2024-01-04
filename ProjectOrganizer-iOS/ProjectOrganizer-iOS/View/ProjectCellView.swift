@@ -13,15 +13,19 @@ struct ProjectCellView: View {
     
     var body: some View {
         NavigationLink(value: project) {
-            VStack(alignment: .leading, content: {
+            VStack(alignment: .leading, spacing: 12, content: {
                 Text(project.name)
+                    .fontWeight(.bold)
+                    .font(.title2)
                 Text(project.detailedDescription)
                     .foregroundStyle(.secondary)
+                    .font(.system(size: 14))
+                    
             })
         }
         .swipeActions {
             Button(role: .destructive) {
-                
+                modelContext.delete(project)
             } label: {
                 Label("Delete", systemImage: "trash")
             }
@@ -31,7 +35,6 @@ struct ProjectCellView: View {
             }, label: {
                 Label("Archive", systemImage: "archivebox")
             })
-
         }
     }
     

@@ -16,32 +16,30 @@ struct NewProjectView: View {
     @State private var status: ProjectStatus = .active
     @State private var featureDescription: String = ""
     var body: some View {
-        NavigationStack {
-            Form {
-                Section("Project properties") {
-                    VStack(alignment: .leading, spacing: 12, content: {
-                        TextField("Project name", text: $name)
-                        
-                        TextField("Project description", text: $description, axis: .vertical)
-                            .foregroundStyle(.secondary)
-                    })
-                }
-                
-                Section("Project Status") {
-                    Picker("Current status", selection: $status) {
-                        ForEach(ProjectStatus.allCases) { status in
-                            Text(status.rawValue.capitalized)
-                        }
+        Form {
+            Section("Project properties") {
+                VStack(alignment: .leading, spacing: 12, content: {
+                    TextField("Project name", text: $name)
+                    
+                    TextField("Project description", text: $description, axis: .vertical)
+                        .foregroundStyle(.secondary)
+                })
+            }
+            
+            Section("Project Status") {
+                Picker("Current status", selection: $status) {
+                    ForEach(ProjectStatus.allCases) { status in
+                        Text(status.rawValue.capitalized)
                     }
                 }
-                
-                Section("Features") {
-                    TextField("New feature", text: $featureDescription)
-                        .onSubmit {
-                            let feature = Feature(detailedDescription: featureDescription, isDone: false)
-                            
-                        }
-                }
+            }
+            
+            Section("Features") {
+                TextField("New feature", text: $featureDescription)
+                    .onSubmit {
+                        let feature = Feature(detailedDescription: featureDescription, isDone: false)
+                        
+                    }
             }
         }
         .navigationTitle("Add New Project")

@@ -27,14 +27,18 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("My Projects")
+            .navigationDestination(for: Project.self) { ProjectOverviewView(project: $0)}
             .toolbar {
                 Button("Add", systemImage: "plus") {
                     showAddProjectView.toggle()
-                } .navigationDestination(isPresented: $showAddProjectView) {
+                }
+            }
+            .sheet(isPresented: $showAddProjectView, content: {
+                NavigationStack {
                     NewProjectView()
                 }
-                
-            }
+                .navigationTitle("Add New Project")
+            })
             
         }
     }

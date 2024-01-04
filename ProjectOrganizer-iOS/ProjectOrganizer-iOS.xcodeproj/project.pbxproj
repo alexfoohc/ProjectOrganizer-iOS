@@ -15,6 +15,7 @@
 		7D40F7A22B45004100124CDC /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F7A12B45004100124CDC /* Feature.swift */; };
 		7D40F7A52B4519F400124CDC /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F7A42B4519F400124CDC /* NewProjectView.swift */; };
 		7DF110742B464C87008D5043 /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF110732B464C87008D5043 /* ProjectCellView.swift */; };
+		7DF110762B465DDA008D5043 /* ProjectOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF110752B465DDA008D5043 /* ProjectOverviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7D40F7A12B45004100124CDC /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		7D40F7A42B4519F400124CDC /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
 		7DF110732B464C87008D5043 /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
+		7DF110752B465DDA008D5043 /* ProjectOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOverviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				7D40F7A42B4519F400124CDC /* NewProjectView.swift */,
 				7DF110732B464C87008D5043 /* ProjectCellView.swift */,
+				7DF110752B465DDA008D5043 /* ProjectOverviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				7D40F7A22B45004100124CDC /* Feature.swift in Sources */,
 				7D40F7A52B4519F400124CDC /* NewProjectView.swift in Sources */,
 				7D40F7932B44FB5900124CDC /* ContentView.swift in Sources */,
+				7DF110762B465DDA008D5043 /* ProjectOverviewView.swift in Sources */,
 				7D40F7912B44FB5900124CDC /* ProjectOrganizer_iOSApp.swift in Sources */,
 				7D40F7A02B44FEA700124CDC /* Project.swift in Sources */,
 			);
