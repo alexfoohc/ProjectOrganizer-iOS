@@ -20,8 +20,8 @@ struct ContentView: View {
                     ContentUnavailableView("No projects", systemImage: "folder", description: Text("Tap on Add to add new projects"))
                 } else {
                     List {
-                        ForEach(projects) { project in
-                            Text(project.name)
+                        ForEach(projects) {
+                            ProjectCellView(project: $0)
                         }
                     }
                 }
