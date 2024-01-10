@@ -17,6 +17,10 @@ enum ProjectStatus: String, Codable, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
+//enum ProjectCategory: String, Codable, CaseIterable, Identifiable {
+//    case 
+//}
+
 @Model
 class Project {
     @Attribute(.unique) var name: String

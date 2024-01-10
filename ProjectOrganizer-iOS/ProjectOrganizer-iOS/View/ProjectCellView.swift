@@ -31,7 +31,8 @@ struct ProjectCellView: View {
             }
             
             Button(action: {
-                
+                project.status = .archived
+                modelContext.insert(project)
             }, label: {
                 Label("Archive", systemImage: "archivebox")
             })

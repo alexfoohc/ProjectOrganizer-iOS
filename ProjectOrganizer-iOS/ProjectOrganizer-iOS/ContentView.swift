@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var showAddProjectView: Bool = false
 
     @Query var projects: [Project]
+    
     var body: some View {
         NavigationStack {
             Group {
@@ -20,9 +21,31 @@ struct ContentView: View {
                     ContentUnavailableView("No projects", systemImage: "folder", description: Text("Tap on Add to add new projects"))
                 } else {
                     List {
-                        ForEach(projects) {
-                            ProjectCellView(project: $0)
+                        Section("Active") {
+                            ForEach(projects.filter({$0.status == .active})) { project in
+                                ProjectCellView(project: project)
+                            }
                         }
+                        Section("Postponed") {
+                            ForEach(projects.filter({$0.status == .postponed})) { project in
+                                ProjectCellView(project: project)
+                            }
+                        }
+                        
+                        Section("Archived") {
+                            ForEach(projects.filter({$0.status == .archived})) { project in
+                                ProjectCellView(project: project)
+                            }
+                        }
+                        
+                        Section("Canceled") {
+                            ForEach(projects.filter({$0.status == .canceled})) { project in
+                                ProjectCellView(project: project)
+                            }
+                        }
+//                        ForEach(projects) {
+//                            ProjectCellView(project: $0)
+//                        }
                     }
                 }
             }
@@ -43,6 +66,23 @@ struct ContentView: View {
         }
     }
     
+    private func fetchProjectsBasedOnStatus(project: Project, category: ProjectStatus) -> [Project] {
+        let active = projects.filter({ $0.status == .active })
+        let postponed = projects.filter({ $0.status == .postponed })
+        let archived = projects.filter({ $0.status == .archived })
+        let canceled = projects.filter({ $0.status == .canceled })
+        
+        switch category {
+        case .active:
+            return active
+        case .postponed:
+            return postponed
+        case .archived:
+            return archived
+        case .canceled:
+            return canceled
+        }
+    }
     
 }
 
