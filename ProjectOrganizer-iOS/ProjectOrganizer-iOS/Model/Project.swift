@@ -9,17 +9,13 @@ import Foundation
 import SwiftData
 
 enum ProjectStatus: String, Codable, CaseIterable, Identifiable {
-    case active
-    case postponed
-    case canceled
-    case archived
+    case active = "Active"
+    case postponed = "Postponed"
+    case canceled = "Canceled"
+    case archived = "Archived"
     
     var id: Self { self }
 }
-
-//enum ProjectCategory: String, Codable, CaseIterable, Identifiable {
-//    case 
-//}
 
 @Model
 class Project {

@@ -21,31 +21,12 @@ struct ContentView: View {
                     ContentUnavailableView("No projects", systemImage: "folder", description: Text("Tap on Add to add new projects"))
                 } else {
                     List {
-                        Section("Active") {
-                            ForEach(projects.filter({$0.status == .active})) { project in
-                                ProjectCellView(project: project)
+                        ForEach(ProjectStatus.allCases, id: \.self) { status in
+                            Section(status.rawValue) {
+                                presentViews(for: status)
                             }
+                            
                         }
-                        Section("Postponed") {
-                            ForEach(projects.filter({$0.status == .postponed})) { project in
-                                ProjectCellView(project: project)
-                            }
-                        }
-                        
-                        Section("Archived") {
-                            ForEach(projects.filter({$0.status == .archived})) { project in
-                                ProjectCellView(project: project)
-                            }
-                        }
-                        
-                        Section("Canceled") {
-                            ForEach(projects.filter({$0.status == .canceled})) { project in
-                                ProjectCellView(project: project)
-                            }
-                        }
-//                        ForEach(projects) {
-//                            ProjectCellView(project: $0)
-//                        }
                     }
                 }
             }
@@ -62,9 +43,15 @@ struct ContentView: View {
                 }
                 .navigationTitle("Add New Project")
             })
-            
         }
-    }    
+    }
+    
+    @ViewBuilder
+    private func presentViews(for status: ProjectStatus) -> some View {
+        ForEach(projects.filter({$0.status == status})) { project in
+            ProjectCellView(project: project)
+        }
+    }
 }
 
 #Preview {
