@@ -64,26 +64,7 @@ struct ContentView: View {
             })
             
         }
-    }
-    
-    private func fetchProjectsBasedOnStatus(project: Project, category: ProjectStatus) -> [Project] {
-        let active = projects.filter({ $0.status == .active })
-        let postponed = projects.filter({ $0.status == .postponed })
-        let archived = projects.filter({ $0.status == .archived })
-        let canceled = projects.filter({ $0.status == .canceled })
-        
-        switch category {
-        case .active:
-            return active
-        case .postponed:
-            return postponed
-        case .archived:
-            return archived
-        case .canceled:
-            return canceled
-        }
-    }
-    
+    }    
 }
 
 #Preview {
