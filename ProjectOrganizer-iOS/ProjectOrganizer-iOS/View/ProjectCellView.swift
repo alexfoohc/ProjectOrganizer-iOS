@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+enum SwipeActionIcon: String {
+    case active = ""
+    case postponed = "hourglass"
+    case done = "checkmark.circle.fill"
+    case canceled = "multiply"
+}
+
 struct ProjectCellView: View {
     @Environment(\.modelContext) private var modelContext
     var project: Project
@@ -20,24 +27,47 @@ struct ProjectCellView: View {
                 Text(project.detailedDescription)
                     .foregroundStyle(.secondary)
                     .font(.system(size: 14))
-                    
+                
             })
         }
-        .swipeActions {
+        .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
+            setButtonForSwipeAction(for: .done)
+            setButtonForSwipeAction(for: .postponed)
+        })
+        .swipeActions(edge: .trailing, content: {
             Button(role: .destructive) {
                 modelContext.delete(project)
             } label: {
-                Label("Delete", systemImage: "trash")
+                Label("Delete", systemImage: "trash.fill")
             }
-            
-            Button(action: {
-                project.status = .archived
-                modelContext.insert(project)
-            }, label: {
-                Label("Archive", systemImage: "archivebox")
-            })
-        }
+            setButtonForSwipeAction(for: .canceled)
+        })
     }
     
+    private func setButtonForSwipeAction(for status: ProjectStatus) -> some View {
+        let iconColor: Color
+        let swipeAction: SwipeActionIcon
+        switch status {
+        case .active:
+            iconColor = Color.clear
+            swipeAction = .active
+        case .postponed:
+            iconColor = Color.yellow
+            swipeAction = .postponed
+        case .done:
+            iconColor = Color.green
+            swipeAction = .done
+        case .canceled:
+            iconColor = Color.red
+            swipeAction = .canceled
+        }
+        return Button {
+            project.status = status
+            modelContext.insert(project)
+        } label: {
+            Label(status.rawValue, systemImage: swipeAction.rawValue)
+        }.tint(iconColor)
+    }
 }
+
 

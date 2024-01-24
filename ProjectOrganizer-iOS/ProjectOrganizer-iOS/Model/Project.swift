@@ -11,8 +11,8 @@ import SwiftData
 enum ProjectStatus: String, Codable, CaseIterable, Identifiable {
     case active = "Active"
     case postponed = "Postponed"
+    case done = "Done"
     case canceled = "Canceled"
-    case archived = "Archived"
     
     var id: Self { self }
 }
