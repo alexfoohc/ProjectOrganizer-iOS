@@ -44,10 +44,22 @@ struct NewProjectView: View {
         }
         .navigationTitle("Add New Project")
         .toolbar {
-            Button("Save") {
-                let project = Project(name: name, detailedDescription: description, status: status)
-                modelContext.insert(project)
-                isDismissed()
+            ToolbarItem(placement: .topBarLeading) {
+                Button(role: .cancel, action: {
+                    isDismissed()
+                }, label: {
+                    Text("Cancel")
+                })
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    // TODO: Add a function to validate empty fields before creating a new project
+                    let project = Project(name: name, detailedDescription: description, status: status)
+                    modelContext.insert(project)
+                    isDismissed()
+                } label: {
+                    Text("Save")
+                }
             }
         }
     }

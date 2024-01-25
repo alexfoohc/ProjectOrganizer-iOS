@@ -30,6 +30,7 @@ struct ProjectCellView: View {
                 
             })
         }
+        .frame(height: 90)
         .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
             setButtonForSwipeAction(for: .done)
             setButtonForSwipeAction(for: .postponed)
