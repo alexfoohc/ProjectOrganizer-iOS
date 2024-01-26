@@ -15,18 +15,37 @@ struct ProjectOverviewView: View {
     @State private var textFieldDescription: String = ""
     @State private var disabledTextField = true
     @State private var buttonText = "Edit"
+    @State private var isAddNotesPresented = false
     
     var body: some View {
         VStack(alignment: .leading, content: {
+            TextField("", text: $textFieldDescription)
+            List {
+                Section("Features") {
+                    Text("Hey")
+                }
+                Section("Notes") {
+                    
+                }
+                
+            }
             
         })
         .navigationTitle(project.name)
+        .sheet(isPresented: $isAddNotesPresented, content: {
+            AddNotesView()
+        })
         .toolbar {
             Button(action: {
                 disabledTextField.toggle()
             }, label: {
                 Text(buttonText)
             })
+            Button {
+                isAddNotesPresented.toggle()
+            } label: {
+                Text("Add Notes")
+            }
         }
     }
 }
