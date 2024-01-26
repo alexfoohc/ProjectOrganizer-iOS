@@ -41,7 +41,6 @@ struct ContentView: View {
                 NavigationStack {
                     NewProjectView()
                 }
-                .navigationTitle("Add New Project")
             })
         }
     }

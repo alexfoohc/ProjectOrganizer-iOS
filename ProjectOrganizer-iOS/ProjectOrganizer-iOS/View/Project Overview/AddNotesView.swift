@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct AddNotesView: View {
+    @Environment(\.dismiss) private var isDismissed
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section("Test") {
+                
+            }
+            
+        }
+        .navigationTitle("Add New Note")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Save") {
+                    
+                }
+            }
+            ToolbarItem(placement: .topBarLeading) {
+                Button("Cancel") {
+                    isDismissed()
+                }
+            }
+        }
     }
+    
+    
 }
 
-#Preview {
-    AddNotesView()
-}
+//#Preview {
+//    AddNotesView()
+//}

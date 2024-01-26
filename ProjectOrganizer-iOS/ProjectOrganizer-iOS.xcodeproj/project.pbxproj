@@ -16,6 +16,7 @@
 		7D40F7A52B4519F400124CDC /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F7A42B4519F400124CDC /* NewProjectView.swift */; };
 		7D4A25732B63641D0064157F /* FeaturesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25722B63641D0064157F /* FeaturesCellView.swift */; };
 		7D4A25752B6365680064157F /* AddNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25742B6365680064157F /* AddNotesView.swift */; };
+		7D4A25782B6370030064157F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25772B6370030064157F /* Note.swift */; };
 		7DF110742B464C87008D5043 /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF110732B464C87008D5043 /* ProjectCellView.swift */; };
 		7DF110762B465DDA008D5043 /* ProjectOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF110752B465DDA008D5043 /* ProjectOverviewView.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		7D40F7A42B4519F400124CDC /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
 		7D4A25722B63641D0064157F /* FeaturesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesCellView.swift; sourceTree = "<group>"; };
 		7D4A25742B6365680064157F /* AddNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesView.swift; sourceTree = "<group>"; };
+		7D4A25772B6370030064157F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		7DF110732B464C87008D5043 /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
 		7DF110752B465DDA008D5043 /* ProjectOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOverviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 			children = (
 				7D40F79F2B44FEA700124CDC /* Project.swift */,
 				7D40F7A12B45004100124CDC /* Feature.swift */,
+				7D4A25772B6370030064157F /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				7D40F7A52B4519F400124CDC /* NewProjectView.swift in Sources */,
 				7D4A25732B63641D0064157F /* FeaturesCellView.swift in Sources */,
 				7D40F7932B44FB5900124CDC /* ContentView.swift in Sources */,
+				7D4A25782B6370030064157F /* Note.swift in Sources */,
 				7DF110762B465DDA008D5043 /* ProjectOverviewView.swift in Sources */,
 				7D40F7912B44FB5900124CDC /* ProjectOrganizer_iOSApp.swift in Sources */,
 				7D4A25752B6365680064157F /* AddNotesView.swift in Sources */,
