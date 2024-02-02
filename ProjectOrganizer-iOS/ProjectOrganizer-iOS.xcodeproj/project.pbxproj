@@ -14,11 +14,12 @@
 		7D40F7A02B44FEA700124CDC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F79F2B44FEA700124CDC /* Project.swift */; };
 		7D40F7A22B45004100124CDC /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F7A12B45004100124CDC /* Feature.swift */; };
 		7D40F7A52B4519F400124CDC /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F7A42B4519F400124CDC /* NewProjectView.swift */; };
+		7D4169652B647AC300EA0742 /* ProjectOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4169642B647AC300EA0742 /* ProjectOverviewViewModel.swift */; };
 		7D4A25732B63641D0064157F /* FeaturesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25722B63641D0064157F /* FeaturesCellView.swift */; };
 		7D4A25752B6365680064157F /* AddNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25742B6365680064157F /* AddNotesView.swift */; };
 		7D4A25782B6370030064157F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25772B6370030064157F /* Note.swift */; };
 		7DF110742B464C87008D5043 /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF110732B464C87008D5043 /* ProjectCellView.swift */; };
-		7DF110762B465DDA008D5043 /* ProjectOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF110752B465DDA008D5043 /* ProjectOverviewView.swift */; };
+		7DF110762B465DDA008D5043 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF110752B465DDA008D5043 /* ProjectDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +31,12 @@
 		7D40F79F2B44FEA700124CDC /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		7D40F7A12B45004100124CDC /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		7D40F7A42B4519F400124CDC /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
+		7D4169642B647AC300EA0742 /* ProjectOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOverviewViewModel.swift; sourceTree = "<group>"; };
 		7D4A25722B63641D0064157F /* FeaturesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesCellView.swift; sourceTree = "<group>"; };
 		7D4A25742B6365680064157F /* AddNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesView.swift; sourceTree = "<group>"; };
 		7D4A25772B6370030064157F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		7DF110732B464C87008D5043 /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
-		7DF110752B465DDA008D5043 /* ProjectOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOverviewView.swift; sourceTree = "<group>"; };
+		7DF110752B465DDA008D5043 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				7D40F7902B44FB5900124CDC /* ProjectOrganizer_iOSApp.swift */,
+				7D4169612B64404D00EA0742 /* ViewModel */,
 				7D40F79E2B44FE9A00124CDC /* Model */,
 				7D40F7A32B4514B700124CDC /* View */,
 				7D40F7922B44FB5900124CDC /* ContentView.swift */,
@@ -105,10 +108,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7D4169612B64404D00EA0742 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7D4169642B647AC300EA0742 /* ProjectOverviewViewModel.swift */,
+			);
+			name = ViewModel;
+			path = ../ViewModel;
+			sourceTree = "<group>";
+		};
 		7D4A25712B6363E50064157F /* Project Overview */ = {
 			isa = PBXGroup;
 			children = (
-				7DF110752B465DDA008D5043 /* ProjectOverviewView.swift */,
+				7DF110752B465DDA008D5043 /* ProjectDetailsView.swift */,
 				7D4A25722B63641D0064157F /* FeaturesCellView.swift */,
 				7D4A25742B6365680064157F /* AddNotesView.swift */,
 			);
@@ -187,11 +199,12 @@
 			files = (
 				7DF110742B464C87008D5043 /* ProjectCellView.swift in Sources */,
 				7D40F7A22B45004100124CDC /* Feature.swift in Sources */,
+				7D4169652B647AC300EA0742 /* ProjectOverviewViewModel.swift in Sources */,
 				7D40F7A52B4519F400124CDC /* NewProjectView.swift in Sources */,
 				7D4A25732B63641D0064157F /* FeaturesCellView.swift in Sources */,
 				7D40F7932B44FB5900124CDC /* ContentView.swift in Sources */,
 				7D4A25782B6370030064157F /* Note.swift in Sources */,
-				7DF110762B465DDA008D5043 /* ProjectOverviewView.swift in Sources */,
+				7DF110762B465DDA008D5043 /* ProjectDetailsView.swift in Sources */,
 				7D40F7912B44FB5900124CDC /* ProjectOrganizer_iOSApp.swift in Sources */,
 				7D4A25752B6365680064157F /* AddNotesView.swift in Sources */,
 				7D40F7A02B44FEA700124CDC /* Project.swift in Sources */,

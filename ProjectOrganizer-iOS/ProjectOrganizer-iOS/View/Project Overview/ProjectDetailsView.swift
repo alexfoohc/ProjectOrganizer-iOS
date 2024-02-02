@@ -1,5 +1,5 @@
 //
-//  ProjectOverviewView.swift
+//  ProjectDetailsView.swift
 //  ProjectOrganizer-iOS
 //
 //  Created by Alejandro Hernandez on 03/01/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct ProjectOverviewView: View {
+struct ProjectDetailsView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.editMode) private var editMode
     @Bindable var project: Project
@@ -21,20 +21,26 @@ struct ProjectOverviewView: View {
         VStack(alignment: .leading, content: {
             List {
                 Section("Features") {
-                    Text("Hey")
                     TextField("Add new feature", text: $textFieldDescription)
                         .onSubmit {
+                            project.features.append(Feature(detailedDescription: textFieldDescription))
+                            textFieldDescription = ""
                             
-                            // TODO: Add new feature here
+                            // TODO: Sort the items added
                         }
+                    ForEach(project.features) { feature in
+                        Text(feature.detailedDescription)
+//                        FeaturesCellView(features: project.features)
+                    }
+                    .onDelete(perform: deleteFeature)
+                    
+                    
                     
                 }
                 Section("Notes") {
                     
                 }
-                
             }
-            
         })
         .navigationTitle(project.name)
         .sheet(isPresented: $isAddNotesPresented, content: {
@@ -59,5 +65,8 @@ struct ProjectOverviewView: View {
     private func checkIfEditModeIsOn() {
         
     }
+    
+    private func deleteFeature(at offset: IndexSet) {
+        print("\(offset)")
+    }
 }
-

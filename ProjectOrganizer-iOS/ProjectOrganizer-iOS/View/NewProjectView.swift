@@ -15,6 +15,7 @@ struct NewProjectView: View {
     @State private var isActive: Bool = false
     @State private var status: ProjectStatus = .active
     @State private var featureDescription: String = ""
+    private var features: [Feature] = []
     var body: some View {
         Form {
             Section("Project properties") {
@@ -37,8 +38,7 @@ struct NewProjectView: View {
             Section("Features") {
                 TextField("New feature", text: $featureDescription)
                     .onSubmit {
-                        let feature = Feature(detailedDescription: featureDescription, isDone: false)
-                        
+                        let feature = Feature(detailedDescription: featureDescription)
                     }
             }
         }
@@ -56,6 +56,7 @@ struct NewProjectView: View {
                     // TODO: Add a function to validate empty fields before creating a new project
                     let project = Project(name: name, detailedDescription: description, status: status)
                     modelContext.insert(project)
+                    project.features.append(Feature(detailedDescription: featureDescription))
                     isDismissed()
                 } label: {
                     Text("Save")
@@ -63,4 +64,6 @@ struct NewProjectView: View {
             }
         }
     }
+    
+    
 }

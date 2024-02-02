@@ -31,7 +31,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("My Projects")
-            .navigationDestination(for: Project.self) { ProjectOverviewView(project: $0)}
+            .navigationDestination(for: Project.self) { ProjectDetailsView(project: $0)}
             .toolbar {
                 Button("Add", systemImage: "plus") {
                     showAddProjectView.toggle()

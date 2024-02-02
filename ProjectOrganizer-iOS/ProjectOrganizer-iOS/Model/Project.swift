@@ -32,7 +32,12 @@ class Project {
     }
     
     @Relationship(deleteRule: .cascade)
-    var features: [Feature] = []
+    var features: [Feature] = [Feature]()
     
-  
+    @Relationship(deleteRule: .cascade)
+    var notes: [Note] = []
+    
+    
+    
+    
 }
