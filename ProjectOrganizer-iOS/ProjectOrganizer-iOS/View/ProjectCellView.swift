@@ -17,6 +17,8 @@ enum SwipeActionIcon: String {
 struct ProjectCellView: View {
     @Environment(\.modelContext) private var modelContext
     var project: Project
+    @State private var isMenuShown: Bool = false
+    @State private var isAlertShown: Bool = false
     
     var body: some View {
         NavigationLink(value: project) {
@@ -31,18 +33,32 @@ struct ProjectCellView: View {
             })
         }
         .frame(height: 90)
-        .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
-            setButtonForSwipeAction(for: .done)
-            setButtonForSwipeAction(for: .postponed)
-        })
         .swipeActions(edge: .trailing, content: {
             Button(role: .destructive) {
-                modelContext.delete(project)
+                isAlertShown.toggle()
+//                modelContext.delete(project)
             } label: {
                 Label("Delete", systemImage: "trash.fill")
             }
-            setButtonForSwipeAction(for: .canceled)
+            
+            Button {
+                isMenuShown.toggle()
+            } label: {
+                Label("Status", systemImage: "checklist")
+            }
+            
+//            setButtonForSwipeAction(for: .canceled)
         })
+        .alert(isPresented: $isAlertShown) {
+            Alert(title: Text("Delete project"), message: Text("Are you sure you want to delete this project"), dismissButton: .default(Text("OK")))
+        }
+        .confirmationDialog("Menu", isPresented: $isMenuShown, titleVisibility: .visible) {
+            Button {
+                print("hey")
+            } label: {
+                Label("Canceled", systemImage: SwipeActionIcon.postponed.rawValue)
+            }
+        }
     }
     
     private func setButtonForSwipeAction(for status: ProjectStatus) -> some View {

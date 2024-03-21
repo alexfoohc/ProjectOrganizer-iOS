@@ -16,6 +16,7 @@ struct ProjectDetailsView: View {
     @State private var disabledTextField = true
     @State private var buttonText = "Edit"
     @State private var isAddNotesPresented = false
+    @State private var features: [Feature] = []
     
     var body: some View {
         VStack(alignment: .leading, content: {
@@ -23,16 +24,22 @@ struct ProjectDetailsView: View {
                 Section("Features") {
                     TextField("Add new feature", text: $textFieldDescription)
                         .onSubmit {
-                            project.features.append(Feature(detailedDescription: textFieldDescription))
+                            let feature = Feature(detailedDescription: textFieldDescription)
+                            self.features.append(feature)
                             textFieldDescription = ""
                             
+                            for feature in features {
+                                self.project.addFeature(feature: feature)
+                            }
                             // TODO: Sort the items added
                         }
                     ForEach(project.features) { feature in
                         Text(feature.detailedDescription)
 //                        FeaturesCellView(features: project.features)
                     }
-                    .onDelete(perform: deleteFeature)
+                    .onDelete { indexSet in
+                        project.removeFeatureLocated(at: indexSet)
+                    }
                     
                     
                     
@@ -64,9 +71,5 @@ struct ProjectDetailsView: View {
     
     private func checkIfEditModeIsOn() {
         
-    }
-    
-    private func deleteFeature(at offset: IndexSet) {
-        print("\(offset)")
     }
 }

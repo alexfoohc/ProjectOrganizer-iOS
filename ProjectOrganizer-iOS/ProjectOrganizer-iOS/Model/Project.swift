@@ -31,6 +31,15 @@ class Project {
         self.creationDate = .now
     }
     
+    func addFeature(feature: Feature) {
+        self.features.append(feature)
+    }
+    
+    func removeFeatureLocated(at offsets: IndexSet) {
+        self.features.remove(atOffsets: offsets)
+    }
+    
+    
     @Relationship(deleteRule: .cascade)
     var features: [Feature] = [Feature]()
     

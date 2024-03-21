@@ -11,6 +11,8 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var showAddProjectView: Bool = false
+    
+    
 
     @Query var projects: [Project]
     
