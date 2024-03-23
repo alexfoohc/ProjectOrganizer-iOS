@@ -7,12 +7,13 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 enum ProjectStatus: String, Codable, CaseIterable, Identifiable {
-    case active = "Active"
-    case postponed = "Postponed"
-    case done = "Done"
-    case canceled = "Canceled"
+    case active = "Active 🟢"
+    case postponed = "Postponed ⌛️"
+    case done = "Done ✅"
+    case canceled = "Canceled ❌"
     
     var id: Self { self }
 }

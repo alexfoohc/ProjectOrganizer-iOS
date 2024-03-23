@@ -36,30 +36,32 @@ struct ProjectCellView: View {
         .swipeActions(edge: .trailing, content: {
             Button(role: .destructive) {
                 isAlertShown.toggle()
-//                modelContext.delete(project)
+                //                modelContext.delete(project)
             } label: {
                 Label("Delete", systemImage: "trash.fill")
             }
             
             Button {
                 isMenuShown.toggle()
+                
             } label: {
                 Label("Status", systemImage: "checklist")
             }
-            
-//            setButtonForSwipeAction(for: .canceled)
+            //            setButtonForSwipeAction(for: .canceled)
         })
         .alert(isPresented: $isAlertShown) {
-            Alert(title: Text("Delete project"), message: Text("Are you sure you want to delete this project"), dismissButton: .default(Text("OK")))
+            Alert(title: Text("Delete project"), message: Text("Are you sure you want to delete this project?"), primaryButton: .destructive(Text("Yes"), action: {
+                modelContext.delete(project)
+            }), secondaryButton: .cancel())
         }
-        .confirmationDialog("Menu", isPresented: $isMenuShown, titleVisibility: .visible) {
-            Button {
-                print("hey")
-            } label: {
-                Label("Canceled", systemImage: SwipeActionIcon.postponed.rawValue)
-            }
-        }
+        .sheet(isPresented: $isMenuShown) {
+            Text("Testing")
+                .presentationDetents([.fraction(0.25)])
+        }        
     }
+    
+    
+    
     
     private func setButtonForSwipeAction(for status: ProjectStatus) -> some View {
         let iconColor: Color
@@ -85,6 +87,6 @@ struct ProjectCellView: View {
             Label(status.rawValue, systemImage: swipeAction.rawValue)
         }.tint(iconColor)
     }
+    
 }
-
 

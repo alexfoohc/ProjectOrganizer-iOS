@@ -19,9 +19,21 @@ struct ProjectDetailsView: View {
     @State private var features: [Feature] = []
     
     var body: some View {
+        Text("Status: \(project.status.rawValue)")
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
+            .frame(maxWidth:.infinity, alignment: .trailing)
+            .padding()
+        
         VStack(alignment: .leading, content: {
+
+            Text(project.detailedDescription)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .padding()
+            
             List {
-                Section("Features") {
+                Section("Features ⭐️") {
                     TextField("Add new feature", text: $textFieldDescription)
                         .onSubmit {
                             let feature = Feature(detailedDescription: textFieldDescription)
@@ -35,7 +47,7 @@ struct ProjectDetailsView: View {
                         }
                     ForEach(project.features) { feature in
                         Text(feature.detailedDescription)
-//                        FeaturesCellView(features: project.features)
+                        //                        FeaturesCellView(features: project.features)
                     }
                     .onDelete { indexSet in
                         project.removeFeatureLocated(at: indexSet)
@@ -44,7 +56,7 @@ struct ProjectDetailsView: View {
                     
                     
                 }
-                Section("Notes") {
+                Section("Notes 📓") {
                     
                 }
             }
