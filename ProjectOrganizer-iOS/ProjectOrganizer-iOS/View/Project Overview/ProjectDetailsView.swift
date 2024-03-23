@@ -19,18 +19,19 @@ struct ProjectDetailsView: View {
     @State private var features: [Feature] = []
     
     var body: some View {
-        Text("Status: \(project.status.rawValue)")
-            .font(.subheadline)
-            .foregroundStyle(.secondary)
-            .frame(maxWidth:.infinity, alignment: .trailing)
-            .padding()
-        
-        VStack(alignment: .leading, content: {
-
-            Text(project.detailedDescription)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .padding()
+        VStack {
+            VStack(alignment: .leading, spacing: 12, content: {
+                Text("Status: \(project.status.rawValue)")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth:.infinity, alignment: .leading)
+                    .padding()
+                
+                Text(project.detailedDescription)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .padding()
+            })
             
             List {
                 Section("Features ⭐️") {
@@ -52,19 +53,19 @@ struct ProjectDetailsView: View {
                     .onDelete { indexSet in
                         project.removeFeatureLocated(at: indexSet)
                     }
-                    
-                    
-                    
                 }
                 Section("Notes 📓") {
-                    
+                    ForEach(project.notes) { note in
+                        Text(note.title)
+                        
+                    }
                 }
             }
-        })
+        }
         .navigationTitle(project.name)
         .sheet(isPresented: $isAddNotesPresented, content: {
             NavigationStack {
-                AddNotesView()
+                AddNotesView(project: project)
             }
         })
         .toolbar {

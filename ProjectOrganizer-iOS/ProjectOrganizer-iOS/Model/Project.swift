@@ -10,10 +10,10 @@ import SwiftData
 import SwiftUI
 
 enum ProjectStatus: String, Codable, CaseIterable, Identifiable {
-    case active = "Active 🟢"
-    case postponed = "Postponed ⌛️"
-    case done = "Done ✅"
-    case canceled = "Canceled ❌"
+    case active = "Active"
+    case postponed = "Postponed"
+    case done = "Done"
+    case canceled = "Canceled"
     
     var id: Self { self }
 }
@@ -40,6 +40,13 @@ class Project {
         self.features.remove(atOffsets: offsets)
     }
     
+    func addNote(note: Note) {
+        self.notes.append(note)
+    }
+    
+    func removeNoteLocated(at offsets: IndexSet) {
+        self.notes.remove(atOffsets: offsets)
+    }
     
     @Relationship(deleteRule: .cascade)
     var features: [Feature] = [Feature]()
