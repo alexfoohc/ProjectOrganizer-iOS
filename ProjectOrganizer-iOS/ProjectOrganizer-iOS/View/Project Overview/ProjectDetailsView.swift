@@ -14,9 +14,9 @@ struct ProjectDetailsView: View {
     @Bindable var project: Project
     @State private var textFieldDescription: String = ""
     @State private var disabledTextField = true
-    @State private var buttonText = "Edit"
     @State private var isAddNotesPresented = false
     @State private var features: [Feature] = []
+    @FocusState private var isDetailedDescriptionFocused: Bool
     
     var body: some View {
         VStack {
@@ -26,12 +26,25 @@ struct ProjectDetailsView: View {
                     .foregroundStyle(.secondary)
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding()
+                if editMode?.wrappedValue.isEditing == true {
+                    TextField("", text: $project.detailedDescription)
+                        .focused($isDetailedDescriptionFocused)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .padding()
+                } else {
+                    Text(project.detailedDescription)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .padding()
+                }
                 
-                Text(project.detailedDescription)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .padding()
+//                Text(project.detailedDescription)
+//                    .font(.subheadline)
+//                    .foregroundStyle(.secondary)
+//                    .padding()
             })
+            
             
             List {
                 Section("Features ⭐️") {
@@ -46,6 +59,7 @@ struct ProjectDetailsView: View {
                             }
                             // TODO: Sort the items added
                         }
+                        
                     ForEach(project.features) { feature in
                         Text(feature.detailedDescription)
                         //                        FeaturesCellView(features: project.features)
@@ -74,12 +88,15 @@ struct ProjectDetailsView: View {
             } label: {
                 Text("Add Notes")
             }
-            Button {
-                disabledTextField.toggle()
-            } label: {
-                Text(buttonText)
-            }
+//            Button {
+//                disabledTextField.toggle()
+//            } label: {
+//                Text(buttonText)
+//            }
+            EditButton()
         }
+        
+        
     }
     
     private func checkIfEditModeIsOn() {
