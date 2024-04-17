@@ -14,6 +14,10 @@
 		7D40F7A02B44FEA700124CDC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F79F2B44FEA700124CDC /* Project.swift */; };
 		7D40F7A22B45004100124CDC /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F7A12B45004100124CDC /* Feature.swift */; };
 		7D40F7A52B4519F400124CDC /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D40F7A42B4519F400124CDC /* NewProjectView.swift */; };
+		7D4747E12BCF5E01006FA82E /* MyListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4747E02BCF5E01006FA82E /* MyListsView.swift */; };
+		7D4747E32BCF5E2B006FA82E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4747E22BCF5E2B006FA82E /* Category.swift */; };
+		7D4747E62BCF5EC1006FA82E /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4747E52BCF5EC1006FA82E /* CategoryView.swift */; };
+		7D4747E92BCF6189006FA82E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4747E82BCF6189006FA82E /* Constants.swift */; };
 		7D4A25732B63641D0064157F /* FeaturesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25722B63641D0064157F /* FeaturesCellView.swift */; };
 		7D4A25752B6365680064157F /* AddNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25742B6365680064157F /* AddNotesView.swift */; };
 		7D4A25782B6370030064157F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A25772B6370030064157F /* Note.swift */; };
@@ -30,6 +34,10 @@
 		7D40F79F2B44FEA700124CDC /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		7D40F7A12B45004100124CDC /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		7D40F7A42B4519F400124CDC /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
+		7D4747E02BCF5E01006FA82E /* MyListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsView.swift; sourceTree = "<group>"; };
+		7D4747E22BCF5E2B006FA82E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		7D4747E52BCF5EC1006FA82E /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		7D4747E82BCF6189006FA82E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D4A25722B63641D0064157F /* FeaturesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesCellView.swift; sourceTree = "<group>"; };
 		7D4A25742B6365680064157F /* AddNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesView.swift; sourceTree = "<group>"; };
 		7D4A25772B6370030064157F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -68,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				7D40F7902B44FB5900124CDC /* ProjectOrganizer_iOSApp.swift */,
+				7D4747E72BCF617D006FA82E /* Utilities */,
 				7D40F79E2B44FE9A00124CDC /* Model */,
 				7D40F7A32B4514B700124CDC /* View */,
 				7D40F7922B44FB5900124CDC /* ContentView.swift */,
@@ -91,6 +100,7 @@
 				7D40F79F2B44FEA700124CDC /* Project.swift */,
 				7D40F7A12B45004100124CDC /* Feature.swift */,
 				7D4A25772B6370030064157F /* Note.swift */,
+				7D4747E22BCF5E2B006FA82E /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,11 +108,37 @@
 		7D40F7A32B4514B700124CDC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7D4747DF2BCF5DE2006FA82E /* Home */,
 				7D4A25712B6363E50064157F /* Project Overview */,
 				7D40F7A42B4519F400124CDC /* NewProjectView.swift */,
 				7DF110732B464C87008D5043 /* ProjectCellView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7D4747DF2BCF5DE2006FA82E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7D4747E42BCF5E93006FA82E /* CategoryCard */,
+				7D4747E02BCF5E01006FA82E /* MyListsView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7D4747E42BCF5E93006FA82E /* CategoryCard */ = {
+			isa = PBXGroup;
+			children = (
+				7D4747E52BCF5EC1006FA82E /* CategoryView.swift */,
+			);
+			path = CategoryCard;
+			sourceTree = "<group>";
+		};
+		7D4747E72BCF617D006FA82E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7D4747E82BCF6189006FA82E /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		7D4A25712B6363E50064157F /* Project Overview */ = {
@@ -189,12 +225,16 @@
 				7D40F7A22B45004100124CDC /* Feature.swift in Sources */,
 				7D40F7A52B4519F400124CDC /* NewProjectView.swift in Sources */,
 				7D4A25732B63641D0064157F /* FeaturesCellView.swift in Sources */,
+				7D4747E12BCF5E01006FA82E /* MyListsView.swift in Sources */,
+				7D4747E62BCF5EC1006FA82E /* CategoryView.swift in Sources */,
 				7D40F7932B44FB5900124CDC /* ContentView.swift in Sources */,
 				7D4A25782B6370030064157F /* Note.swift in Sources */,
 				7DF110762B465DDA008D5043 /* ProjectDetailsView.swift in Sources */,
 				7D40F7912B44FB5900124CDC /* ProjectOrganizer_iOSApp.swift in Sources */,
 				7D4A25752B6365680064157F /* AddNotesView.swift in Sources */,
+				7D4747E92BCF6189006FA82E /* Constants.swift in Sources */,
 				7D40F7A02B44FEA700124CDC /* Project.swift in Sources */,
+				7D4747E32BCF5E2B006FA82E /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

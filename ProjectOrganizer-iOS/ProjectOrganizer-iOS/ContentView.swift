@@ -33,6 +33,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("My Projects")
+            .navigationBarTitleDisplayMode(.automatic)
             .navigationDestination(for: Project.self) { ProjectDetailsView(project: $0)}
             .toolbar {
                 Button("Add", systemImage: "plus") {
