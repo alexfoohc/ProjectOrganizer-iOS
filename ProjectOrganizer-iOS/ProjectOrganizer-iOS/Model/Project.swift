@@ -24,12 +24,14 @@ class Project {
     var detailedDescription: String
     var status: ProjectStatus
     var creationDate: Date
+    var category: Categories
     
-    init(name: String, detailedDescription: String, status: ProjectStatus) {
+    init(name: String, detailedDescription: String, status: ProjectStatus, category: Categories) {
         self.name = name
         self.detailedDescription = detailedDescription
         self.status = status
         self.creationDate = .now
+        self.category = category
     }
     
     func addFeature(feature: Feature) {
@@ -53,8 +55,6 @@ class Project {
     
     @Relationship(deleteRule: .cascade)
     var notes: [Note] = []
-    
-    
     
     
 }

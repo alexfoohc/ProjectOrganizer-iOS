@@ -16,6 +16,8 @@ struct NewProjectView: View {
     @State private var status: ProjectStatus = .active
     @State private var featureDescription: String = ""
     @State private var features: [Feature] = []
+    @State private var category: Categories = .personal
+    
     var body: some View {
         Form {
             Section("Project properties") {
@@ -31,6 +33,14 @@ struct NewProjectView: View {
                 Picker("Current status", selection: $status) {
                     ForEach(ProjectStatus.allCases) { status in
                         Text(status.rawValue.capitalized)
+                    }
+                }
+            }
+            
+            Section("Category") {
+                Picker("Categories", selection: $category) {
+                    ForEach(Categories.allCases) { category in
+                        Text(category.rawValue.capitalized)
                     }
                 }
             }
@@ -62,7 +72,7 @@ struct NewProjectView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     // TODO: Add a function to validate empty fields before creating a new project
-                    let project = Project(name: name, detailedDescription: description, status: status)
+                    let project = Project(name: name, detailedDescription: description, status: status, category: category)
                     modelContext.insert(project)
                     for feature in features {
                         project.addFeature(feature: feature)

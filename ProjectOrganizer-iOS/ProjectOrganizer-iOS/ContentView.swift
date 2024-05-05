@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var showAddProjectView: Bool = false
     
     
-
+    @Query var categories: [Category]
     @Query var projects: [Project]
     
     var body: some View {
@@ -22,14 +22,15 @@ struct ContentView: View {
                 if projects.isEmpty {
                     ContentUnavailableView("No projects", systemImage: "folder", description: Text("Tap on Add to add new projects"))
                 } else {
-                    List {
+                    /*List {
                         ForEach(ProjectStatus.allCases, id: \.self) { status in
                             Section(status.rawValue) {
                                 presentViews(for: status)
                             }
-                            
                         }
-                    }
+                    }*/
+                    
+                    // TODO: Add Grid View to show all the categories (3)
                 }
             }
             .navigationTitle("My Projects")

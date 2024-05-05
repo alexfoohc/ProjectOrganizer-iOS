@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyListsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        CategoryView(category: Category(name: Categories.personal.rawValue, count: 0))
     }
 }
 
