@@ -19,6 +19,7 @@ struct CategoryView: View {
                     Text("\(category.count)")
                         .gridCellAnchor(.bottomTrailing)
                 }
+                .frame(width: 151, height: 101)
             }
         }
     }

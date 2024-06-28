@@ -12,7 +12,7 @@ struct ProjectOrganizer_iOSApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .modelContainer(for: [Category.self, Project.self, Feature.self, Note.self])
+                .modelContainer(for: [Project.self, Feature.self, Note.self])
         }
     }
 }
